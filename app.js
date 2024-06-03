@@ -14,7 +14,8 @@ app.use(cors({
   methods: 'GET,POST,PUT,DELETE,OPTIONS', // Allowed HTTP methods
   allowedHeaders: 'Origin,X-Requested-With,Content-Type,Accept,Authorization', // Allowed headers
 }));
-
+// Handle preflight requests
+app.options('*', cors());
 
 app.use(express.json())
 app.use("/api/v1",manager)
