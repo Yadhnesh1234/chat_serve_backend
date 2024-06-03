@@ -255,7 +255,9 @@ const updateTableStatus = (req, res) => {
 
 const calculateTotalBill = (req, res) => {
   const connection = connect_db();
-
+  res.setHeader('Access-Control-Allow-Origin', 'https://chat-serve-backend.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 
     // Query to get the latest order
     const getLastOrderQuery = 'SELECT order_id FROM `order` ORDER BY order_id DESC LIMIT 1';
